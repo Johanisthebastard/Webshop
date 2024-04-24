@@ -1,13 +1,27 @@
+import Product from '../Components/Product';
 import React from 'react'
+import Header from '../Components/Header';
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 export default function Homepage() {
   return (
 	<div>
 		
 		
-		<h1>HOMEPAGE MED ALLA VAROR</h1>
-		<Navbar/>
+		<Header/>
+		
+		
+		
+		<section className="body">
+			<Product/>
+
+
+		</section>
+
+		<Footer/>
 
 	</div>
+
+	
   )
 }

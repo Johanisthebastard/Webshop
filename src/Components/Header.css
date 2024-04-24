@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Titan+One&display=swap');
+
+.header {
+	position: sticky;
+	
+  	width: 100%;
+	font-family: "Luckiest Guy", cursive;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: #4e96f7;
+	color: #fff;
+  }
+  
+  .logo {
+	font-size: 24px;
+	display: flex; /* Använd flexbox för att placera texten bredvid loggan */
+	align-items: center; /* Centrera vertikalt */
+  }
+  
+  .logo img {
+	width: 100px;
+	height: auto;
+  }
+  
+
+
+ 
+  
+  @media screen and (max-width: 320px) {
+	.header {
+	  flex-direction: column;
+	  align-items: center;
+	  
+	  
+	}
+  
+	.logo {
+		
+	  align-items: center;
+	  margin-bottom: 10px;
+	}
+  
+  }
+
+  .cart-head {
+	color: white;
+	text-decoration: none;
+  }
+
+  .admin-head {
+	color: white;
+	text-decoration: none;
+  }
+
