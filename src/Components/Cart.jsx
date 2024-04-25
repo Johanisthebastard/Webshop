@@ -12,22 +12,22 @@ export default function Cart() {
     totalPrice: state.totalPrice,
   }));
 
-  // Tillståndsvariabel för att hantera visning av beställningsmeddelande
+  
   const [orderPlaced, setOrderPlaced] = useState(false);
 
-  // Funktion för att hantera borttagning av en vara från varukorgen
+  
   const handleRemoveFromCart = (toyId) => {
     removeFromCart(toyId);
   };
 
-  // Funktion för att hantera beställningsknappens klickhändelse
+  
   const handlePlaceOrder = () => {
-    // Rensa varukorgen
+    
     cart.forEach((toy) => {
       removeFromCart(toy.id);
     });
 
-    // Visa beställningsmeddelandet
+    
     setOrderPlaced(true);
   };
 
