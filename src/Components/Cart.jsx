@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -6,26 +6,29 @@ import useStore from '../Data/store';
 import './Cart.css';
 
 export default function Cart() {
-  const { cart, removeFromCart } = useStore((state) => ({
+  const { cart, removeFromCart, totalPrice } = useStore((state) => ({
     cart: state.cart,
     removeFromCart: state.removeFromCart,
-    increaseQuantity: state.increaseQuantity
+    totalPrice: state.totalPrice,
   }));
+
+  // Tillståndsvariabel för att hantera visning av beställningsmeddelande
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   // Funktion för att hantera borttagning av en vara från varukorgen
   const handleRemoveFromCart = (toyId) => {
     removeFromCart(toyId);
   };
 
-  // Funktion för att öka antalet av en vara
-  const handleIncreaseQuantity = (toyId) => {
-    increaseQuantity(toyId);
-  };
-
   // Funktion för att hantera beställningsknappens klickhändelse
   const handlePlaceOrder = () => {
-    // Placera beställningslogik här
-    console.log("Beställning placerad!");
+    // Rensa varukorgen
+    cart.forEach((toy) => {
+      removeFromCart(toy.id);
+    });
+
+    // Visa beställningsmeddelandet
+    setOrderPlaced(true);
   };
 
   return (
@@ -33,9 +36,12 @@ export default function Cart() {
       <Header />
       
       <div className="shopping-cart">
-        <h2>Shopping Cart</h2>
-        {cart.length === 0 ? (
-          <p>Varukorgen är tom</p>
+        {!orderPlaced ? <h2>Varukorg</h2> : null}
+        {orderPlaced ? (
+          <p>Tack för din beställning!</p>
+        ) : cart.length === 0 ? (
+          <p> Varukorgen är tom... <img src="./src/assets/jt.gif" alt="" /></p>
+		  
         ) : (
           cart.map((toy) => (
             <div key={toy.id} className="cart-item-container">
@@ -46,17 +52,16 @@ export default function Cart() {
                   <p>Price: {toy.Price}:-</p>
                   <div className="quantity-controls">
                     <button className="remove-item" onClick={() => handleRemoveFromCart(toy.id)}>Ta bort</button>
-                    <span className="item-quantity">{toy.quantity}</span>
-                    
+                   
                   </div>
                 </div>
               </div>
             </div>
           ))
         )}
-        {cart.length !== 0 && (
+        {cart.length !== 0 && !orderPlaced && (
           <div className="total">
-            <h3>Total: :-</h3>
+            <h3>Total: {totalPrice}:-</h3>
             <button className="place-order-btn" onClick={handlePlaceOrder}>LÄGG BESTÄLLNING</button>
           </div>
         )}
