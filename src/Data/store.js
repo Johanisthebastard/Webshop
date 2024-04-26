@@ -16,6 +16,10 @@ const useStore = create((set) => ({
     set((state) => ({
       cart: state.cart.filter(item => item.id !== toyId)
     })),
+
+	addToy: toy => set(state => ({
+		toys: [ ...state.toys, toy ]
+	}))
     
  
 }));

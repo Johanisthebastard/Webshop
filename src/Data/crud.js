@@ -26,28 +26,13 @@ function withKey(doc) {
 	return o
 }
 
-// async function addToys(toys) {
-// 	// referens till collection 'employees'
-// 	await addDoc(collectionRef, toys)
-// }
 
-// async function deleteToys(key) {
-// 	const docRef = doc(collectionRef, key)
-// 	// console.log('deleteEmployee: ', docRef);
-// 	deleteDoc(docRef)
-// }
 
-// async function editToys(key, updatedToys) {
-// 	// vi behöver en "collection reference"
-// 	// vi skapar en referens till dokumentet vi ska ändra på
-// 	// leta upp en funktion som kan uppdatera ett dokument
-// 	const docRef = doc(collectionRef, key)
+export async function addToy(toy) {
+	
+	await addDoc(collectionRef, toy)
+}
 
-// 	// Två alternativ för att ändra:
-// 	// updateDoc - uppdaterar ett befintligt objekt
-// 	// setDoc - uppdaterar eller skapar ett objekt
-// 	await updateDoc(docRef, updatedToys)
-// }
 
 
 

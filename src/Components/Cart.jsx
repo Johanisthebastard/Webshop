@@ -49,7 +49,7 @@ export default function Cart() {
                 <img src={toy.Url} alt="Product Image" />
                 <div className="cart-item-details">
                   <h3>{toy.Title}</h3>
-                  <p>Price: {toy.Price}:-</p>
+                  <p>Pris: {toy.Price}:-</p>
                   <div className="quantity-controls">
                     <button className="remove-item" onClick={() => handleRemoveFromCart(toy.id)}>Ta bort</button>
                    
