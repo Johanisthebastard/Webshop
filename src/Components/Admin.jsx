@@ -14,6 +14,7 @@ const AddToy = () => {
     const [titleError, setTitleError] = useState('');
     const [priceError, setPriceError] = useState('');
     const [toys, setToys] = useState([]);
+	const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         fetchToys();

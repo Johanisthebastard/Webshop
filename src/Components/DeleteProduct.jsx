@@ -25,7 +25,7 @@ export default function DeleteProduct({ handleEditToy }) {
         <>
             <div className="btn-container">
                 <button className="fetch-btn" onClick={fetchToys}>
-                    Redigera leksaker
+                    Spara ändringar
                 </button>
             </div>
             <div className="toy-container">

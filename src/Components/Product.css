@@ -80,3 +80,14 @@
 	align-items: center; /* Centrera vertikalt */
 	
   }
+
+  .edit-btn {
+	background-color: #ec6363;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 0.7em;
+	cursor: pointer;
+	margin-top: 10px;
+  }
