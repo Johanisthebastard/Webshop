@@ -12,6 +12,7 @@ export default function Product() {
 
 	const handleGetToys = async () => {
 		setToys(await getToys());
+		fetchToys();
 	};
 
 	const handleAddToCart = (toy) => {
