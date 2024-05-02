@@ -7,8 +7,8 @@
 }
 
 
-.bod {
-	height: 100dvh;
+.body {
+	min-height: 100dvh;
 }
 
 .toy-container {

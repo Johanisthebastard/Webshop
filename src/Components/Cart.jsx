@@ -41,8 +41,8 @@ export default function Cart() {
 
   return (
     <div className="cart-container">
+      <section className="body">
       <Header />
-      
       <div className="shopping-cart">
         {!orderPlaced ? <h2>Varukorg</h2> : null}
         {orderPlaced ? (
@@ -76,6 +76,7 @@ export default function Cart() {
         <NavLink to="/" className="back-link">Gå tillbaka</NavLink>
       </div>
 
+	  </section>
       <Footer />
     </div>
   );
