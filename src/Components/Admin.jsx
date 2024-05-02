@@ -66,6 +66,8 @@ const AddToy = () => {
 
 			}
 
+			await fetchToys();
+
 
 			setUrl('');
 			setTitle('');
@@ -121,9 +123,9 @@ const AddToy = () => {
 
 				<button
 					disabled={isLoading}
-					onClick={() => {
-						handleSubmit();
-						fetchToys();
+					onClick={async (e) => {
+						await handleSubmit(e);
+						
 					}}
 					type="submit"
 				>

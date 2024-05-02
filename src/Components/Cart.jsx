@@ -6,11 +6,10 @@ import useStore from '../Data/store';
 import './Cart.css';
 
 export default function Cart() {
-  const { cart, removeFromCart, totalPrice } = useStore((state) => ({
+  const { cart, removeFromCart } = useStore((state) => ({
     cart: state.cart,
     removeFromCart: state.removeFromCart,
-    totalPrice: state.totalPrice,
-	setTotalPrice: state.setTotalPrice,
+    
   }));
 
   
@@ -19,7 +18,7 @@ export default function Cart() {
   
   const handleRemoveFromCart = (toyId) => {
     removeFromCart(toyId);
-	setTotalPrice(totalPrice - toyPrice);
+	
 
   };
 
@@ -34,6 +33,12 @@ export default function Cart() {
     setOrderPlaced(true);
   };
 
+  // loopa igenom cart för att räkna ut total price
+  let totalPrice = 0;
+  cart.forEach((toy) => {
+    totalPrice += toy.Price;
+  });
+
   return (
     <div className="cart-container">
       <Header />
@@ -43,7 +48,7 @@ export default function Cart() {
         {orderPlaced ? (
           <p>Tack för din beställning!</p>
         ) : cart.length === 0 ? (
-          <p> Varukorgen är tom... <img src="./src/assets/jt.gif" alt="" /></p>
+          <p> Varukorgen är tom... </p>
 		  
         ) : (
           cart.map((toy) => (

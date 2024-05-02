@@ -8,6 +8,13 @@ const useStore = create((set) => ({
   setToys: newToys => set(state => ({
     toys: newToys
   })),
+
+  fetchToys: async () => set(async state => {
+	
+	return {
+		toys: await getToys()
+	}
+  }),
   
   addToCart: (toy) => 
     set((state) => ({ cart: [...state.cart, toy], totalPrice: state.totalPrice + toy.Price })),
