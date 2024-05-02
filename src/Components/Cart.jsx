@@ -10,6 +10,7 @@ export default function Cart() {
     cart: state.cart,
     removeFromCart: state.removeFromCart,
     totalPrice: state.totalPrice,
+	setTotalPrice: state.setTotalPrice,
   }));
 
   
@@ -18,6 +19,8 @@ export default function Cart() {
   
   const handleRemoveFromCart = (toyId) => {
     removeFromCart(toyId);
+	setTotalPrice(totalPrice - toyPrice);
+
   };
 
   

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const Header = () => {
   return (
     <header className="header">
-      <div className="logo"><img src="./src/assets/sh.png" alt="Logo" />SUNTRIP SOLTOYS</div>
+      <div className="logo"> SUNTRIP SOLTOYS </div>
       <Navbar className="nav"/> 
     </header>
   );
